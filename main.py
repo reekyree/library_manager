@@ -1,20 +1,36 @@
 # A program for managing a personal library of books.
 
+import pickle
 
+running = True
+books = {}
 
-def add_book():
-    books = {}
+def add_book(books):
+    
+    book = input("Enter the title: ")
 
-    book = input("Please enter the name of a book: ")
-
-    author = input(f"Who was the auhtor of {book}? ")
+    author = input(f"Enter the author: ")
 
     books.update({book : author})
 
-    for key, value in books.items():
-        print(f"{key} by {value}")
+def save_books(books):
+
+    if len(books) == 0:
+        print("Nothing to save!")
+
+    pickle.dump(books, open(library.p, 'wb'))
 
 
-add_book()
-add_book()
 
+while running:
+
+    print("1. Add a new book")
+    print("2. Save booklist")
+    print("3. Quit")
+    choice = int(input("Enter a command: "))
+    if choice == 1:
+        add_book(books)
+    elif choice == 2:
+        save_books(books)
+    elif choice == 3:
+        running = False
