@@ -18,9 +18,6 @@ def save_books(books):
     if len(books) == 0:
         print("Nothing to save!")
 
-    pickle.dump(books, open(library.p, 'wb'))
-
-
 
 while running:
 
